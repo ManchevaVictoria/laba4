@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static int findplace(int[] massive, int i) {
+    public static int find_place(int[] massive, int i) {
 
         if (massive[i] > massive[0]) {
 
@@ -45,7 +45,7 @@ public class Main {
 
             int peremenay = massive[i];
 
-            int index = findplace(massive, i);
+            int index = find_place(massive, i);
 
             for (int j = i - 1; j >= index; j--) massive[j + 1] = massive[j];
 
