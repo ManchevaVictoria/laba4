@@ -45,4 +45,10 @@ max_jobs: 1
 
 # Build worker image (VM template)
 image: ubuntu
-
+before_build:
+ - nuget restore
+build_script:
+ - choco install "sonarscanner-msbuild-net46" -y
+ - SonarScanner.MSBuild.exe begin /k:"laba4" /d:"sonar.host.url=https://sonarcloud.io" /o:"manchevavictoria" /d:"sonar.login=manchevavictoria"
+ - msbuild /verbosity:quiet "laba4.sln"
+ - SonarScanner.MSBuild.exe end /d:"sonar.login=manchevavictoria"
