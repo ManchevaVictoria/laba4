@@ -10,7 +10,7 @@ branches:
     - master
     - production
 
-  # blacklist
+ 
   except:
     - gh-pages
 
